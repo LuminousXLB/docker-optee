@@ -1,0 +1,11 @@
+version: "3"
+services:
+  optee:
+    image: optee
+    build:
+      context: .
+    hostname: optee-dev
+    volumes:
+      - ./workspace:/home
+    ports:
+      - "22000:22"

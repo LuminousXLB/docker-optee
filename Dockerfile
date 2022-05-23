@@ -74,6 +74,7 @@ RUN set -x \
     build-essential \
     ccache \
     codespell \
+    cpio \
     cscope \
     curl \
     device-tree-compiler \
@@ -113,7 +114,8 @@ RUN set -x \
     xterm \
     xz-utils \
     zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && pip --no-cache-dir install cryptography
 
 # Get REPO
 RUN set -x \

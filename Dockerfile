@@ -125,9 +125,15 @@ RUN set -x \
     && curl -s https://storage.googleapis.com/git-repo-downloads/repo.asc | gpg --verify - ${REPO} \
     && install -m 755 ${REPO} /usr/local/bin/repo
 
+# Set Oh-my-zsh
+USER ubuntu
+RUN set -x \
+    && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 USER root
 
 # Start sshd
 CMD set -x \
     && service rsyslog start \
     && /usr/sbin/sshd -D
+
